@@ -22,11 +22,11 @@ export default function HomePage() {
             <Link href="/campaigns" className="text-sm font-medium hover:underline underline-offset-4">
               Campaigns
             </Link>
-            <Link href="/about" className="text-sm font-medium hover:underline underline-offset-4">
+            <Link href="/aboutus" className="text-sm font-medium hover:underline underline-offset-4">
               About
             </Link>
-            <Link href="/contact" className="text-sm font-medium hover:underline underline-offset-4">
-              Contact
+            <Link href="/contactus" className="text-sm font-medium hover:underline underline-offset-4">
+              Contact Us
             </Link>
           </nav>
           <div className="flex items-center gap-4">
@@ -94,7 +94,7 @@ export default function HomePage() {
                 <Card key={campaign.id} className="overflow-hidden">
                   <div className="aspect-video w-full overflow-hidden">
                     <Image
-                      src="/sarah.png"
+                      src={campaign.image || "/placeholder.svg"}
                       alt={campaign.title}
                       width={600}
                       height={400}
@@ -327,7 +327,7 @@ const campaigns = [
     id: 1,
     title: "Medical Treatment for Sarah",
     description: "Help Sarah get the life-saving surgery she needs to overcome her rare condition.",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/sarah.png",
     raised: 15000,
     goal: 25000,
     daysLeft: 12,
@@ -338,7 +338,7 @@ const campaigns = [
     id: 2,
     title: "Rebuild After the Flood",
     description: "Support families who lost their homes in the recent flooding in the coastal region.",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/Flood.png",
     raised: 45000,
     goal: 100000,
     daysLeft: 30,
@@ -349,7 +349,7 @@ const campaigns = [
     id: 3,
     title: "Education for Rural Children",
     description: "Provide books, supplies and infrastructure for a school in an underserved rural community.",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/education.png",
     raised: 12000,
     goal: 20000,
     daysLeft: 45,

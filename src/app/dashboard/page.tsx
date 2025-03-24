@@ -1,6 +1,5 @@
 import Link from "next/link"
 import { BarChart3, Heart, Users, CreditCard, Clock, TrendingUp, ListFilter, Download, Plus } from "lucide-react"
-
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -18,22 +17,10 @@ export default function DashboardPage() {
           <h1 className="font-semibold text-lg md:text-xl">Dashboard</h1>
         </div>
         <div className="flex items-center gap-4">
-          <Link href="/dashboard/create">
+          <Link href="/dashboard/create-campaign">
             <Button size="sm" className="hidden md:flex gap-2">
               <Plus className="h-4 w-4" />
               New Campaign
-            </Button>
-          </Link>
-          <Link href="/profile">
-            <Button variant="ghost" size="icon" className="rounded-full">
-              <img
-                src="/placeholder.svg?height=32&width=32"
-                alt="Avatar"
-                className="rounded-full"
-                height={32}
-                width={32}
-              />
-              <span className="sr-only">Profile</span>
             </Button>
           </Link>
         </div>
@@ -68,12 +55,6 @@ export default function DashboardPage() {
                     Donations
                   </Button>
                 </Link>
-                <Link href="/dashboard/supporters">
-                  <Button variant="ghost" className="w-full justify-start gap-2">
-                    <Users className="h-4 w-4" />
-                    Supporters
-                  </Button>
-                </Link>
               </div>
             </div>
             <div className="px-4 py-2">
@@ -82,11 +63,6 @@ export default function DashboardPage() {
                 <Link href="/dashboard/profile">
                   <Button variant="ghost" className="w-full justify-start gap-2">
                     Profile
-                  </Button>
-                </Link>
-                <Link href="/dashboard/account">
-                  <Button variant="ghost" className="w-full justify-start gap-2">
-                    Account
                   </Button>
                 </Link>
                 <Link href="/dashboard/notifications">
@@ -146,19 +122,9 @@ export default function DashboardPage() {
               <div className="flex items-center justify-between">
                 <TabsList>
                   <TabsTrigger value="overview">Overview</TabsTrigger>
-                  <TabsTrigger value="campaigns">Campaigns</TabsTrigger>
                   <TabsTrigger value="analytics">Analytics</TabsTrigger>
                 </TabsList>
-                <div className="flex items-center gap-2">
-                  <Button variant="outline" size="sm" className="h-8 gap-1">
-                    <ListFilter className="h-3.5 w-3.5" />
-                    <span>Filter</span>
-                  </Button>
-                  <Button variant="outline" size="sm" className="h-8 gap-1">
-                    <Download className="h-3.5 w-3.5" />
-                    <span>Export</span>
-                  </Button>
-                </div>
+
               </div>
               <TabsContent value="overview" className="space-y-4">
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">

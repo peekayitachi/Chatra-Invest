@@ -18,6 +18,7 @@ export interface AcademicEntry {
   university: string
   degree: string
   fieldOfStudy: string
+  currentcgpa:string
   startDate: string
   endDate?: string
   grade?: string

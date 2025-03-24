@@ -28,10 +28,6 @@ export default function ProfilePage() {
               New Request
             </Button>
           </Link>
-          <Avatar className="h-8 w-8">
-            <AvatarImage src="/placeholder.svg?height=32&width=32" alt="Avatar" />
-            <AvatarFallback>JD</AvatarFallback>
-          </Avatar>
         </div>
       </header>
       <div className="flex-1 flex">
@@ -76,9 +72,6 @@ export default function ProfilePage() {
               <h2 className="mb-2 px-2 text-xs font-semibold tracking-tight">Settings</h2>
               <div className="space-y-1">
                 <Link href="/dashboard/settings">
-                  <Button variant="ghost" className="w-full justify-start gap-2">
-                    Account
-                  </Button>
                 </Link>
                 <Link href="/dashboard/notifications">
                   <Button variant="ghost" className="w-full justify-start gap-2">

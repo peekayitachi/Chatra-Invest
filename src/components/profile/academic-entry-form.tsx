@@ -27,6 +27,7 @@ export function AcademicEntryForm({ entry, index, onCancel }: AcademicEntryFormP
       university: "",
       degree: "",
       fieldOfStudy: "",
+      currentcgpa: "",
       startDate: "",
       endDate: "",
       grade: "",
@@ -98,6 +99,17 @@ export function AcademicEntryForm({ entry, index, onCancel }: AcademicEntryFormP
                 placeholder="e.g., Computer Science"
                 required
               />
+              <div className="space-y-2">
+                <Label htmlFor="currentcgpa">Current CGPA</Label>
+                <Input
+                  id="currentcgpa"
+                  name="currentcgpa"
+                  value={formData.currentcgpa}
+                  onChange={handleChange}
+                  placeholder="e.g : 8"
+                  required
+                />
+              </div>
             </div>
           </div>
 
