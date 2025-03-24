@@ -11,6 +11,11 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Phone, Mail, MapPin } from "lucide-react"
 
+import Link from "next/link"
+import { ArrowLeft } from "lucide-react"
+
+
+
 export default function ContactPage() {
   const [formState, setFormState] = useState({
     name: "",
@@ -38,6 +43,12 @@ export default function ContactPage() {
     <div className="container py-8 px-4 md:px-6">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
+          <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium mb-6 hover:underline">
+            <ArrowLeft className="h-4 w-4" />
+            Back to home
+          </Link>
+
+
           <h1 className="text-3xl font-bold tracking-tight mb-2">Contact Us</h1>
           <p className="text-muted-foreground">Get in touch with our team</p>
         </div>
