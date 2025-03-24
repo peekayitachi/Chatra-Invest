@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link"
 import { BarChart3, Heart, Users, CreditCard, Clock, TrendingUp, ListFilter, Download, Plus } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -11,7 +12,7 @@ export default function DashboardPage() {
       <header className="sticky top-0 z-30 flex h-16 items-center gap-4 border-b bg-background px-6">
         <Link href="/" className="flex items-center gap-2 font-bold text-xl lg:hidden">
           <Heart className="h-6 w-6" />
-          <span>FundRaiser</span>
+          <span>Dakshina</span>
         </Link>
         <div className="w-full flex-1">
           <h1 className="font-semibold text-lg md:text-xl">Dashboard</h1>
@@ -30,7 +31,7 @@ export default function DashboardPage() {
           <div className="flex h-14 items-center border-b px-4">
             <Link href="/" className="flex items-center gap-2 font-bold text-xl">
               <Heart className="h-6 w-6" />
-              <span>FundRaiser</span>
+              <span>Dakshina</span>
             </Link>
           </div>
           <nav className="flex-1 overflow-auto py-4">

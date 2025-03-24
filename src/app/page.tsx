@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
+import { getAllCampaigns, getAllItems } from "lib/db";
+const campaignsData = await getAllItems("campaigns");
 
 export default function HomePage() {
   return (
@@ -13,12 +15,9 @@ export default function HomePage() {
         <div className="container flex h-16 items-center justify-between px-4 md:px-6">
           <Link href="/" className="flex items-center gap-2 font-bold text-xl">
             <Heart className="h-6 w-6" />
-            <span>FundRaiser</span>
+            <span>Dakshina</span>
           </Link>
           <nav className="hidden md:flex gap-6">
-            <Link href="/" className="text-sm font-medium hover:underline underline-offset-4">
-              Home
-            </Link>
             <Link href="/campaigns" className="text-sm font-medium hover:underline underline-offset-4">
               Campaigns
             </Link>
@@ -90,8 +89,8 @@ export default function HomePage() {
               </div>
             </div>
             <div className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2 lg:grid-cols-3">
-              {campaigns.map((campaign) => (
-                <Card key={campaign.id} className="overflow-hidden">
+              {campaignsData.map((campaign) => (
+                <Card key={campaign.campaign_id} className="overflow-hidden">
                   <div className="aspect-video w-full overflow-hidden">
                     <Image
                       src={campaign.image || "/placeholder.svg"}
@@ -102,49 +101,43 @@ export default function HomePage() {
                     />
                   </div>
                   <CardHeader>
-                    <div className="flex justify-between items-start">
-                      <CardTitle className="line-clamp-1">{campaign.title}</CardTitle>
-                      <Badge variant={campaign.urgent ? "destructive" : "secondary"}>
-                        {campaign.urgent ? "Urgent" : campaign.category}
-                      </Badge>
-                    </div>
                     <CardDescription className="line-clamp-2">{campaign.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-2">
                       <div className="flex justify-between text-sm">
-                        <span className="font-medium">${campaign.raised.toLocaleString()}</span>
-                        <span className="text-muted-foreground">of ${campaign.goal.toLocaleString()}</span>
+                        <span className="font-medium">not in db rn</span>
+                        <span className="text-muted-foreground">of ${campaign.total_fund.toLocaleString()}</span>
                       </div>
-                      <Progress value={(campaign.raised / campaign.goal) * 100} className="h-2" />
+                      <Progress value={(100 / campaign.total_fund) * 100} className="h-2" />
                       <div className="flex justify-between text-xs text-muted-foreground">
-                        <span>{Math.round((campaign.raised / campaign.goal) * 100)}% Funded</span>
-                        <span>{campaign.daysLeft} days left</span>
+                        <span>{Math.round((100 / campaign.total_fund) * 100)}% Funded</span>
+                        <span>{7} days left</span>
                       </div>
                     </div>
                   </CardContent>
                   <CardFooter className="flex flex-col gap-3">
                     <div className="grid grid-cols-3 gap-2 w-full">
-                      <Link href={`/donate/${campaign.id}`} className="col-span-3 sm:col-span-1">
+                      <Link href={`/donate`} className="col-span-3 sm:col-span-1">
                         <Button variant="default" size="sm" className="w-full flex items-center gap-1">
                           <DollarSign className="h-4 w-4" />
                           <span>Donate</span>
                         </Button>
                       </Link>
-                      <Link href={`/lend/${campaign.id}?type=no-interest`} className="col-span-3 sm:col-span-1">
+                      <Link href={`/lend`} className="col-span-3 sm:col-span-1">
                         <Button variant="outline" size="sm" className="w-full flex items-center gap-1">
                           <Landmark className="h-4 w-4" />
                           <span>Lend</span>
                         </Button>
                       </Link>
-                      <Link href={`/lend/${campaign.id}?type=with-interest`} className="col-span-3 sm:col-span-1">
+                      <Link href={`/lend`} className="col-span-3 sm:col-span-1">
                         <Button variant="outline" size="sm" className="w-full flex items-center gap-1">
                           <TrendingUp className="h-4 w-4" />
                           <span>Lend+</span>
                         </Button>
                       </Link>
                     </div>
-                    <Link href={`/campaigns/${campaign.id}`} className="w-full">
+                    <Link href={`/campaigns`} className="w-full">
                       <Button variant="ghost" size="sm" className="w-full">
                         Learn More
                       </Button>
@@ -298,10 +291,10 @@ export default function HomePage() {
           <div className="flex flex-col items-center gap-4 md:flex-row md:gap-6">
             <Link href="/" className="flex items-center gap-2 text-lg font-semibold">
               <Heart className="h-6 w-6" />
-              <span>FundRaiser</span>
+              <span>Dakshina</span>
             </Link>
             <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-              &copy; {new Date().getFullYear()} FundRaiser. All rights reserved.
+              &copy; {new Date().getFullYear()} Dakshina. All rights reserved.
             </p>
           </div>
           <div className="flex gap-4">
