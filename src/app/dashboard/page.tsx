@@ -17,7 +17,7 @@ export default function DashboardPage() {
           <h1 className="font-semibold text-lg md:text-xl">Dashboard</h1>
         </div>
         <div className="flex items-center gap-4">
-          <Link href="/dashboard/create">
+          <Link href="/dashboard/create-campaign">
             <Button size="sm" className="hidden md:flex gap-2">
               <Plus className="h-4 w-4" />
               New Campaign

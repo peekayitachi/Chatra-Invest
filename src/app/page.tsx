@@ -26,7 +26,7 @@ export default function HomePage() {
               About
             </Link>
             <Link href="/contactus" className="text-sm font-medium hover:underline underline-offset-4">
-              Contact
+              Contact Us
             </Link>
           </nav>
           <div className="flex items-center gap-4">
