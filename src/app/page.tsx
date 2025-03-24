@@ -1,7 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Heart, BarChart3, TrendingUp, ArrowRight, DollarSign, Landmark } from "lucide-react"
-
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
@@ -37,9 +36,6 @@ export default function HomePage() {
                 Dashboard
               </Button>
             </Link>
-            <Link href="/login">
-              <Button size="sm">Sign In</Button>
-            </Link>
           </div>
         </div>
       </header>
@@ -70,7 +66,7 @@ export default function HomePage() {
               </div>
               <div className="mx-auto w-full max-w-[500px] aspect-video overflow-hidden rounded-xl">
                 <Image
-                  src="/placeholder.svg?height=500&width=800"
+                  src="/Main-page-main-image.jpg"
                   alt="People helping each other"
                   width={800}
                   height={500}
@@ -98,7 +94,7 @@ export default function HomePage() {
                 <Card key={campaign.id} className="overflow-hidden">
                   <div className="aspect-video w-full overflow-hidden">
                     <Image
-                      src={campaign.image || "/placeholder.svg"}
+                      src="/sarah.png"
                       alt={campaign.title}
                       width={600}
                       height={400}
