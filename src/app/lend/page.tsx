@@ -75,19 +75,6 @@ export default function LendPage() {
                     </div>
                   </CardHeader>
                   <CardContent className="space-y-6">
-                    <RadioGroup defaultValue="50" className="grid grid-cols-3 gap-4">
-                      {["50", "100", "250", "500", "1000", "2500"].map((amount) => (
-                        <div key={amount}>
-                          <RadioGroupItem value={amount} id={`amount-no-interest-${amount}`} className="peer sr-only" />
-                          <Label
-                            htmlFor={`amount-no-interest-${amount}`}
-                            className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-transparent p-4 hover:bg-muted hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
-                          >
-                            ${amount}
-                          </Label>
-                        </div>
-                      ))}
-                    </RadioGroup>
                     <div className="space-y-2">
                       <Label htmlFor="custom-amount-no-interest">Custom Amount</Label>
                       <div className="relative">
@@ -242,23 +229,6 @@ export default function LendPage() {
                     </div>
                   </CardHeader>
                   <CardContent className="space-y-6">
-                    <RadioGroup defaultValue="100" className="grid grid-cols-3 gap-4">
-                      {["100", "250", "500", "1000", "2500", "5000"].map((amount) => (
-                        <div key={amount}>
-                          <RadioGroupItem
-                            value={amount}
-                            id={`amount-with-interest-${amount}`}
-                            className="peer sr-only"
-                          />
-                          <Label
-                            htmlFor={`amount-with-interest-${amount}`}
-                            className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-transparent p-4 hover:bg-muted hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
-                          >
-                            ${amount}
-                          </Label>
-                        </div>
-                      ))}
-                    </RadioGroup>
                     <div className="space-y-2">
                       <Label htmlFor="custom-amount-with-interest">Custom Amount</Label>
                       <div className="relative">
