@@ -25,7 +25,7 @@ export default function HomePage() {
             <Link href="/aboutus" className="text-sm font-medium hover:underline underline-offset-4">
               About
             </Link>
-            <Link href="/contact" className="text-sm font-medium hover:underline underline-offset-4">
+            <Link href="/contactus" className="text-sm font-medium hover:underline underline-offset-4">
               Contact
             </Link>
           </nav>
