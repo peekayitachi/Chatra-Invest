@@ -179,3 +179,55 @@ export const getActiveCampaignsForUser = async (email:string) => {
 
   return data; // Returns an array of active campaign objects
 };
+
+export const getTotalSupportersForUser = async (email: string) => {
+  // Step 1: Get all campaign IDs created by the user
+  const { data: campaigns, error: campaignError } = await supabase
+    .from("Campaigns")
+    .select("campaign_id")
+    .eq("email_id", email);
+
+  if (campaignError) {
+    console.error("Error fetching campaigns:", campaignError);
+    return null;
+  }
+
+  // Extract campaign IDs
+  const campaignIds = campaigns.map((c) => c.campaign_id);
+
+  if (campaignIds.length === 0) {
+    return 0; // No campaigns, so no supporters
+  }
+
+  // Step 2: Get all donor email IDs for those campaigns
+  const { data: donors, error: donationError } = await supabase
+    .from("Donations")
+    .select("email_id")
+    .in("campaign_id", campaignIds);
+
+  if (donationError) {
+    console.error("Error fetching donors:", donationError);
+    return null;
+  }
+
+  // Step 3: Get unique donors by using a Set
+  const uniqueSupporters = new Set(donors.map((d) => d.email_id));
+
+  return uniqueSupporters.size; // Returns total unique supporters
+};
+
+export const getRecentDonationsForUser = async (email: string) => {
+  const { data, error } = await supabase
+    .from("Donations")
+    .select("*")
+    .eq("email_id", email) // Filter by user email
+    .order("date", { ascending: false }) // Sort by most recent first
+    .limit(10); // Fetch last 10 donations (adjust as needed)
+
+  if (error) {
+    console.error("Error fetching recent donations:", error);
+    return null;
+  }
+
+  return data; // Returns an array of recent donation objects
+};

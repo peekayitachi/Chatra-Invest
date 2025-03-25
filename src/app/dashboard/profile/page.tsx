@@ -17,7 +17,7 @@ export default function ProfilePage() {
       <header className="sticky top-0 z-30 flex h-16 items-center gap-4 border-b bg-background px-6">
         <Link href="/" className="flex items-center gap-2 font-bold text-xl lg:hidden">
           <Heart className="h-6 w-6" />
-          <span>FundRaiser</span>
+          <span>Dakshina</span>
         </Link>
         <div className="w-full flex-1">
           <h1 className="font-semibold text-lg md:text-xl">My Profile</h1>
@@ -35,7 +35,7 @@ export default function ProfilePage() {
           <div className="flex h-14 items-center border-b px-4">
             <Link href="/" className="flex items-center gap-2 font-bold text-xl">
               <Heart className="h-6 w-6" />
-              <span>FundRaiser</span>
+              <span>Dakshina</span>
             </Link>
           </div>
           <nav className="flex-1 overflow-auto py-4">
@@ -58,12 +58,6 @@ export default function ProfilePage() {
                   <Button variant="ghost" className="w-full justify-start gap-2">
                     <CreditCard className="h-4 w-4" />
                     Donations
-                  </Button>
-                </Link>
-                <Link href="/dashboard/requests">
-                  <Button variant="ghost" className="w-full justify-start gap-2">
-                    <FileText className="h-4 w-4" />
-                    My Requests
                   </Button>
                 </Link>
               </div>

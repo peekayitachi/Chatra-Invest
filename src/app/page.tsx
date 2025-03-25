@@ -18,9 +18,6 @@ export default function HomePage() {
             <span>Dakshina</span>
           </Link>
           <nav className="hidden md:flex gap-6">
-            <Link href="/campaigns" className="text-sm font-medium hover:underline underline-offset-4">
-              Campaigns
-            </Link>
             <Link href="/aboutus" className="text-sm font-medium hover:underline underline-offset-4">
               About
             </Link>
