@@ -133,7 +133,7 @@ export const getTotalFundsRaised = async () => {
 export const getTotalDonationsForUserCampaigns = async (email: string) => {
   // Step 1: Get all campaign IDs created by the user
   const { data: campaigns, error: campaignsError } = await supabase
-    .from("Campaigns")
+    .from("campaigns")
     .select("campaign_id")
     .eq("email_id", email);
 
@@ -163,27 +163,27 @@ export const getTotalDonationsForUserCampaigns = async (email: string) => {
   // Step 3: Sum up all donation amounts
   const totalDonations = donations.reduce((sum, donation) => sum + donation.amount, 0);
 
+  console.log(totalDonations)
   return totalDonations; // Returns total donations for all campaigns created by the user
 };
 export const getActiveCampaignsForUser = async (email:string) => {
   const { data, error } = await supabase
-    .from("Campaigns")
+    .from("campaigns")
     .select("*")
     .eq("email_id", email)
-    .neq("funding_type", "closed"); // Modify based on how active campaigns are determined
+    .neq("status", "closed"); // Modify based on how active campaigns are determined
 
   if (error) {
     console.error("Error fetching active campaigns:", error);
     return null;
   }
-
-  return data; // Returns an array of active campaign objects
+  return data.length; // Returns an array of active campaign objects
 };
 
 export const getTotalSupportersForUser = async (email: string) => {
   // Step 1: Get all campaign IDs created by the user
   const { data: campaigns, error: campaignError } = await supabase
-    .from("Campaigns")
+    .from("campaigns")
     .select("campaign_id")
     .eq("email_id", email);
 
@@ -213,10 +213,12 @@ export const getTotalSupportersForUser = async (email: string) => {
   // Step 3: Get unique donors by using a Set
   const uniqueSupporters = new Set(donors.map((d) => d.email_id));
 
+  console.log("unique suppoertes ",uniqueSupporters)
   return uniqueSupporters.size; // Returns total unique supporters
 };
 
 export const getRecentDonationsForUser = async (email: string) => {
+
   const { data, error } = await supabase
     .from("Donations")
     .select("*")
@@ -230,4 +232,24 @@ export const getRecentDonationsForUser = async (email: string) => {
   }
 
   return data; // Returns an array of recent donation objects
+};
+export const getAverageDonations= async (email: string) => {
+  const { data, error } = await supabase
+    .from("Donations")
+    .select("*")
+    .eq("email_id", email) // Filter by user email
+    .order("date", { ascending: false }) // Sort by most recent first
+    .limit(10); // Fetch last 10 donations (adjust as needed)
+
+  if (error) {
+    console.error("Error fetching recent donations:", error);
+    return null;
+  }
+  let ans=0;
+data.map((val)=>{
+    console.log("val:",val)
+ans+=val;
+  })
+  console.log("avg dono: ",data)
+  return ans/data.length; // Returns an array of recent donation objects
 };
