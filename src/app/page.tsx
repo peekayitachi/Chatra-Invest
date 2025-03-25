@@ -4,8 +4,8 @@ import { Heart, BarChart3, TrendingUp, ArrowRight, DollarSign, Landmark } from "
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
-import { Badge } from "@/components/ui/badge"
-import { getAllCampaigns, getAllItems } from "lib/db";
+import { getAllItems } from "lib/db";
+
 const campaignsData = await getAllItems("campaigns");
 
 export default function HomePage() {

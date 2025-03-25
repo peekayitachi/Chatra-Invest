@@ -5,13 +5,12 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Progress } from "@/components/ui/progress"
-import { getTotalDonationsForUserCampaigns, getActiveCampaignsForUser, getTotalSupportersForUser, getAverageDonations } from "lib/db"
+import { getTotalDonationsForUserCampaigns, getActiveCampaignsForUser, getTotalSupportersForUser } from "lib/db"
+const total_donations = await getTotalDonationsForUserCampaigns("alice@example.com")
+const active_campaigns = await getActiveCampaignsForUser("alice@example.com")
+const total_supporters = await getTotalSupportersForUser("alice@example.com")
 
 export default function DashboardPage() {
-  const total_donations = getTotalDonationsForUserCampaigns("alice@example.com")
-  const active_campaigns = getActiveCampaignsForUser("alice@example.com")
-  const total_supporters = getTotalSupportersForUser("alice@example.com")
-  const avg_donations = getAverageDonations("alice@example.com")
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-30 flex h-16 items-center gap-4 border-b bg-background px-6">
@@ -119,7 +118,7 @@ export default function DashboardPage() {
                   <TrendingUp className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold">${avg_donations}</div>
+                  <div className="text-2xl font-bold">$0</div>
                   <p className="text-xs text-muted-foreground">+7.4% from last month</p>
                 </CardContent>
               </Card>

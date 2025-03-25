@@ -163,7 +163,6 @@ export const getTotalDonationsForUserCampaigns = async (email: string) => {
   // Step 3: Sum up all donation amounts
   const totalDonations = donations.reduce((sum, donation) => sum + donation.amount, 0);
 
-  console.log(totalDonations)
   return totalDonations; // Returns total donations for all campaigns created by the user
 };
 export const getActiveCampaignsForUser = async (email:string) => {
@@ -213,7 +212,6 @@ export const getTotalSupportersForUser = async (email: string) => {
   // Step 3: Get unique donors by using a Set
   const uniqueSupporters = new Set(donors.map((d) => d.email_id));
 
-  console.log("unique suppoertes ",uniqueSupporters)
   return uniqueSupporters.size; // Returns total unique supporters
 };
 
@@ -247,9 +245,7 @@ export const getAverageDonations= async (email: string) => {
   }
   let ans=0;
 data.map((val)=>{
-    console.log("val:",val)
 ans+=val;
   })
-  console.log("avg dono: ",data)
   return ans/data.length; // Returns an array of recent donation objects
 };
